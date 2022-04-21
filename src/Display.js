@@ -12,26 +12,28 @@ function Display({ bank }) {
 function DrumPad({ id, trigger, source }) {
   useEffect(() => {
     document.addEventListener('keydown', handleKey)
+    console.log('effect')
     return () => {
       document.removeEventListener('keydown', handleKey)
     }
   }, [])
 
   const handleKey = (e) => {
-    if (e.key === trigger) {
+    if (e.key.toUpperCase() === trigger) {
       playSound()
     }
   }
 
   const playSound = () => {
     const audio = document.getElementById(trigger)
-    audio.currentTime = 0
+    console.log(audio)
+    audio.load()
     audio.play()
   }
 
   return (
     <button onClick={playSound}>
-      <audio className="clip" id={trigger} src={source} />
+      <audio className="clip" id={trigger} src={source} type="audio/wav" />
       {trigger}
     </button>
   )

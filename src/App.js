@@ -1,32 +1,52 @@
 import React from 'react'
 import './App.css'
 import Display from './Display.js'
+import Cabasa from './audio/Cabasa.wav'
+import Clap from './audio/Clap.wav'
+import ClHat from './audio/ClHat.wav'
+import Crash02 from './audio/Crash02.wav'
+import Kick from './audio/Kick.wav'
+import OpHat from './audio/OpHat.wav'
+import Snare from './audio/Snare.wav'
+import TomHi from './audio/Tom[Hi].wav'
+import TomLo from './audio/Tom[Lo].wav'
 
 function App() {
   //const [padStyle, setPadStyle] = React.useState(false)
   const keyBindings = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C']
   const descriptions = [
     'Clap',
-    'Ride',
-    'Tom[Hi]',
+    'ClHat',
+    'TomHi',
     'Snare',
     'OpHat',
     'Kick',
     'Crash02',
     'Cabasa',
-    'Tom[Lo]',
+    'TomLo',
+  ]
+  const sources = [
+    Clap,
+    ClHat,
+    TomHi,
+    Snare,
+    OpHat,
+    Kick,
+    Crash02,
+    Cabasa,
+    TomLo,
   ]
 
   class Sample {
-    constructor(key, description) {
+    constructor(key, description, source) {
       this.trigger = key
       this.id = description
-      this.source = `../public/audio/${description}.wav`
+      this.source = source
     }
   }
 
   const bank = keyBindings.map(
-    (key, index) => new Sample(key, descriptions[index]),
+    (key, index) => new Sample(key, descriptions[index], sources[index]),
   )
 
   return (
