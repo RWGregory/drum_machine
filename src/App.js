@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import Display from './Display.js'
+
 import Cabasa from './audio/Cabasa.wav'
 import Clap from './audio/Clap.wav'
 import ClHat from './audio/ClHat.wav'
@@ -12,7 +13,7 @@ import TomHi from './audio/Tom[Hi].wav'
 import TomLo from './audio/Tom[Lo].wav'
 
 function App() {
-  //const [padStyle, setPadStyle] = React.useState(false)
+  const [active, setActive] = React.useState('')
   const keyBindings = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C']
   const descriptions = [
     'Clap',
@@ -21,7 +22,7 @@ function App() {
     'Snare',
     'OpHat',
     'Kick',
-    'Crash02',
+    'Crash',
     'Cabasa',
     'TomLo',
   ]
@@ -51,8 +52,8 @@ function App() {
 
   return (
     <main>
-      <div id="drum-machine">
-        <Display bank={bank} />
+      <div >
+        <Display bank={bank} active={active} setActive={setActive} />
       </div>
     </main>
   )

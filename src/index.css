@@ -1,7 +1,8 @@
 body {
   margin: 0;
   background-color:aliceblue;
-  padding: 20px;
+  display: flex;
+  justify-content: center; 
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 

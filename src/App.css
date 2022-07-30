@@ -1,7 +1,13 @@
-#display {
+.container {
   display: grid;
-  grid-template: auto auto auto / repeat(3, 1fr);
+  grid-template: auto / repeat(3, 1fr);
   gap: 20px;
+}
+
+#display {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  text-align: center;
 }
 
 .drum-pad {
